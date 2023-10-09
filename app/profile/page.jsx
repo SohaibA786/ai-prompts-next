@@ -14,7 +14,7 @@ const MyProfile = () => {
   useEffect(() => {
 
     const fetchPosts = async () => {
-      const response = await fetch(`api/users/${session?.user.id}/posts`);
+      const response = await fetch(`/api/users/${session?.user.id}/posts`);
       const data = await response.json();
 
       setPosts(data);
@@ -30,9 +30,9 @@ const MyProfile = () => {
   const handleDelete = async (post) => {
     const hasConfimed = confirm("Are you sure you want to delete this prompt?");
 
-    if(hasConfimed) {
+    if (hasConfimed) {
       try {
-        await fetch (`/api/prompt/${post._id.toString()}`, {
+        await fetch(`/api/prompt/${post._id.toString()}`, {
           method: 'DELETE',
         })
 
