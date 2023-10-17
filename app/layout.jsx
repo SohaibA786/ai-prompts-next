@@ -4,8 +4,8 @@ import Nav from '@components/Nav'
 import Provider from '@components/Provider'
 
 export const metadata = {
-    title: "Promptopa",
-    description: "Promptopa is a tool for creating and sharing chatgpt prompts.",
+    title: "Promptswap",
+    description: "Promptswap is a tool for creating and sharing chatgpt prompts.",
 }
 
 const RootLayout = ({ children }) => {
