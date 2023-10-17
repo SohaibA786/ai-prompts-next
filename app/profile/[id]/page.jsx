@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { useSession } from "next-auth/react"
 import { useSearchParams } from "next/navigation"
 
-import Profile from '@components/profile'
+import Profile from '@components/Profile'
 
 const UserProfile = ({ params }) => {
     const { data: session } = useSession();
