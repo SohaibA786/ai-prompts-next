@@ -26,7 +26,18 @@ const Feed = () => {
   const handleSearchChange = (e) => {
     setSearchText(e.target.value);
     const filteredProjects = posts.filter((post) => {
-      return post.prompt.toLowerCase().includes(e.target.value) || post.tag.toLowerCase().includes(e.target.value) || post.creator.username?.toLowerCase().includes(e.target.value);
+      return post.prompt.toLowerCase().includes(e.target.value.toLowerCase()) || post.tag.toLowerCase().includes(e.target.value.toLowerCase()) || post.creator.username?.toLowerCase().includes(e.target.value.toLowerCase());
+    })
+
+    setFilteredPosts(filteredProjects);
+  }
+
+  const handleTagClick = (tag) => {
+    if (tag[0] === '#')
+      tag = tag.slice(1);
+    setSearchText(tag);
+    const filteredProjects = posts.filter((post) => {
+      return post.tag.toLowerCase().includes(tag.toLowerCase());
     })
 
     setFilteredPosts(filteredProjects);
@@ -58,7 +69,7 @@ const Feed = () => {
 
       <PromptCardList
         data={filteredPosts}
-        handleTagClick={() => { }}
+        handleTagClick={handleTagClick}
       />
     </section>
   )
