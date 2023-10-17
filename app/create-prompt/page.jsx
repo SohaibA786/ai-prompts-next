@@ -21,6 +21,10 @@ const CreatePrompt = () => {
     setSubmitting(true);
 
     try {
+      if(!session) {
+        alert("You must be logged in to create a prompt.")
+        return;
+      }
       const response = await fetch('/api/prompt/new', {
         method: "POST",
         body: JSON.stringify({
