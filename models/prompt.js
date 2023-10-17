@@ -5,6 +5,7 @@ const PromptSchema = new Schema({
         // One to many relationships
         type: Schema.Types.ObjectId,
         ref: 'User',
+        required: [true, "Creator is required!"],
     },
     prompt: {
         type: String,
